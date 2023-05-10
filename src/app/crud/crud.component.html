@@ -1,0 +1,81 @@
+
+<h1>This is services CRUD Operation</h1>
+
+<!-- {{allStudentData |json}} -->
+
+<form name="myForm" #frm="ngForm" (ngSubmit)="onSubmitData(frm.value)">
+    <div class="form-group">
+        <label for="title">Title:-</label>
+        <input type="text" class="form-control" name="title" #title="ngModel" ngModel>
+    </div>
+
+    <div class="form-group">
+        <label for="author">Author:-</label>
+        <input type="text" class="form-control" name="author" #author="ngModel" ngModel>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email:--</label>
+        <input type="email" class="form-control" name="eml" #eml="ngModel" ngModel>
+    </div>
+
+    <div class="form-group">
+        <label for="course">Course:-</label>
+          <select name="course" id="" class="form-control" #course="ngModel" ngModel>
+            <option *ngFor="let course of courses">{{course}}</option>
+          </select>    
+    </div>
+
+    <div class="form-group">
+        <label for="gender">Gender:-</label>
+        <label for="male">Male</label>
+        <input type="radio" value="male" name="gender" #gender="ngModel" ngModel class="radio">
+        <label for="female">Female</label>
+        <input type="radio" value="female" name="gender" #gender="ngModel" ngModel class="radio">
+
+    </div>
+
+
+
+    <div class="form-group">
+        <label for="password">Password:-</label>
+        <input type="password" class="form-control" name="pass" #pass="ngModel" ngModel>
+    </div>
+
+    <div class="form-group">
+        <label for="cpassword">Confirm Password:-</label>
+        <input type="password" class="form-control" name="cpass" #cpass="ngModel" ngModel>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit Form Data</button>
+    </div>
+
+</form>
+
+<!-- Show data in tabular format to end user -->
+<div>
+    <table class="table table-primary">
+        <tr>
+         <th>Title:-</th>
+         <th>Author:-</th>
+         <th>Email:-</th>
+         <th>Course:-</th>
+         <th>Gender:-</th>
+         <th>Password:-</th>
+         <th> Confirm Password:-</th>
+        </tr> 
+     
+        <tr *ngFor="let dt of allStudentData" >
+         <td>{{dt.title}}</td>
+         <td>{{dt.author}}</td>
+         <td>{{dt.eml}}</td>
+         <td>{{dt.course}}</td>
+         <td>{{dt.gender}}</td>
+         <td>{{dt.pass}}</td>
+         <td>{{dt.cpass}}</td>
+         
+        
+        </tr>
+     </table>
+</div>

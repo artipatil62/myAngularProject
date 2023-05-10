@@ -1,0 +1,28 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "title": "artip",
+      "author": "himanshu",
+      "id": 2
+    },
+    {
+      "title": "priyanka",
+      "author": "mona",
+      "id": 3
+    },
+    {
+      "fname": "priyanka",
+      "lname": "chaudhari",
+      "course": "MCOM",
+      "eml": "priya@gmail.com",
+      "pass": "565656",
+      "cpass": "34544",
+      "id": 4
+    }
+  ]
+}

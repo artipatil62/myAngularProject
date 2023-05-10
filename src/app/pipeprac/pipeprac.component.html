@@ -1,0 +1,46 @@
+<h2>Pipes in Angular15:-</h2>
+<!-- String related -->
+<!-- original string -->
+<h3>Original string: {{sampleString}}</h3>
+
+<!-- For uppercase letter-->
+<h3>UpperCase: {{sampleString | uppercase}}</h3>
+
+<!-- for Lowercase letter -->
+<h3>LowerCase: {{sampleString | lowercase}}</h3>
+
+<!-- for Titlecase letter -->
+<h3>TitleCase: {{sampleString | titlecase}}</h3>
+
+
+
+<!-- Date -->
+<h2>Dates:-</h2>
+
+<!-- original date -->
+<h3>Original date: {{ date1}}</h3>
+
+<!-- only date display -->
+<h3>only Date Format:{{ date1 | date}}</h3>
+
+<!-- for short date -->
+<h3>Short Date: {{ date1 | date:'short'}}</h3>
+
+<!-- for medium date -->
+<h3>Medium Date: {{date1 |date:'medium'}}</h3>
+
+<!-- own date format   (Only support 3 captipal MMM)-->
+<h3>own date format1:  {{date1 | date:'dd/MM/yyyy'}}</h3>
+
+<h3>own date format2: {{date1 | date:'dd/MMM/yyyy'}}</h3>  
+
+<h3>own date format3: {{date1 | date:'EEEE/MMMM/yyyy'}}</h3>
+
+
+<!-- json pipe -->
+<h3>{{studData |json}}</h3>
+
+
+
+
+

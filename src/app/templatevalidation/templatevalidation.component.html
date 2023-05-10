@@ -1,0 +1,55 @@
+<h1>This is Template Driven Form Validation:-</h1>
+<form name="myForm" #frm="ngForm" (ngSubmit)="frm.form.valid && onSubmitData(frm)">
+
+    <div class="form-group">
+        <label for="fname">First Name:</label>
+        <input type="text" name="fname" class="form-control" #fname="ngModel" ngModel 
+        [ngClass]="{'is-invalid':frm.submitted && fname.invalid}" required minlength="4"  >
+
+        <div *ngIf="fname.touched" class="invalid-feedback">
+            <div *ngIf="fname.errors?.['required']">First name is required</div>
+            <div *ngIf="fname.errors?.['minlength']">minimun 4 letter is required</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="lname">last Name:</label>
+        <input type="text" name="lname" class="form-control" #lname="ngModel" ngModel 
+        [ngClass]="{'is-invalid':frm.submitted && lname.invalid}" required minlength="4" >
+
+        <div *ngIf="lname.touched" class="invalid-feedback">
+            <div *ngIf="lname.errors?.['required']">last name is required</div>
+            <div *ngIf="lname.errors?.['minlength']">minimun 4 letter is required</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" name="pass" class="form-control" #pass="ngModel" ngModel 
+        [ngClass]="{'is-invalid':frm.submitted && pass.invalid}" required minlength="4" >
+
+        <div *ngIf="pass.touched" class="invalid-feedback">
+            <div *ngIf="pass.errors?.['required']">password is required</div>
+            <div *ngIf="pass.errors?.['minlength']">minimun 4 letter is required</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-info mt-5">Submit</button>
+    </div>
+
+    </form>
+
+    <table  class="table table-responsive">
+        <tr>
+            <th>First Name</th>
+            <th>last Name</th>
+            <th>Password</th>
+        </tr>
+    
+        <tr *ngFor="let dt of allData">
+            <td>{{dt.fname}}</td>
+            <td>{{dt.lname}}</td>
+            <td>{{dt.pass}}</td>
+        </tr>
+    </table>

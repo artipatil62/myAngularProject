@@ -1,0 +1,103 @@
+<h4 style="color: brown; background-color: aquamarine;">This is service with local api</h4>
+
+<h3>Template Driven form:-</h3>
+
+<form name="myForm" #frm="ngForm" (ngSubmit)=" frm.form.valid && onSubmitbtn(frm)">
+   <div class="form-group">
+    <label for="firstName">First Name:</label><span style="color:red">*</span>
+    <input type="text" class="form-control" name="fname" #fname="ngModel" ngModel
+    [ngClass]="{'is-invalid':frm.submitted && fname.invalid}" required minlength="4">
+   </div>
+     
+   <div *ngIf="fname.touched" class="invalid-feedback">
+    <div *ngIf="fname.errors?.['required']">Firstname field is required</div>
+    <div *ngIf="fname.errors?.['minlength']">minimun 4 letters required</div>
+   </div> 
+   <br> 
+
+   <div class="form-group">
+    <label for="lastName">Last Name:</label><span style="color:red">*</span>
+    <input type="text" class="form-control" name="lname" #lname="ngModel" ngModel
+    [ngClass]="{'is-invalid':frm.submitted && lname.invalid}" required minlength="5">
+   </div>
+     
+   <div *ngIf="lname.touched" class="invalid-feedback">
+    <div *ngIf="lname.errors?.['required']">lastname field is required</div>
+    <div *ngIf="lname.errors?.['minlength']">minimun 5 letters required</div>
+   </div>
+   <br> 
+
+   <div class="form-control">
+    <label for="course">Courses:</label>
+     <select name="course" id="" class="form-control" #course="ngModel" ngModel>
+        <option *ngFor="let dt of courses">{{dt}}</option>
+     </select>
+   </div>
+   <br> 
+
+
+   <div class="form-group">
+    <label for="email">Email:</label><span style="color:red">*</span>
+    <input type="email" class="form-control" name="eml" #eml="ngModel" ngModel
+    [ngClass]="{'is-invalid':frm.submitted && eml.invalid}" 
+    pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+   </div>
+     
+   <div *ngIf="eml.touched" class="invalid-feedback">
+    <div *ngIf="eml.errors?.['required']">email field is required</div>
+    <div *ngIf="eml.errors?.['pattern']">plz enter valid email address</div>
+   </div>
+   <br> 
+   
+   <div class="form-group">
+   <label for="password">Password:</label>
+    <input type="password" class="form-control" name="pass" #pass="ngModel" ngModel>
+   </div>
+   <br> 
+
+
+   <div class="form-group">
+    <label for="cpassword">Confirm Password:</label>
+    <input type="password" class="form-control" name="cpass" #cpass="ngModel" ngModel>
+   </div>
+   <br> 
+   
+  
+
+  <div class="form-group">
+    <button  type="submit" class="btn btn-success">Submit data</button>
+  </div>
+
+
+</form>
+
+
+<div class="container">
+    <table class="table table-responsive">
+        <tr>
+            <th>Id:</th>
+            <th>First Name:</th>
+            <th>Last Name:</th>
+            <th>Courses:</th>
+            <th>Email:</th>
+            <th>Password:</th>
+            <th>Confirm Password:</th>
+        </tr>
+        <tr *ngFor="let dt of studentData">
+            <td>{{dt.id}}</td>
+            <td>{{dt.fname}}</td>
+            <td>{{dt.lname}}</td>
+            <td>{{dt.course}}</td>
+            <td>{{dt.eml}}</td>
+            <td>{{dt.pass}}</td>
+            <td>{{dt.cpass}}</td>
+             <td>
+                <button class="btn btn-danger" (click)="onDeletebtn(dt.id)">Delete</button>
+            </td>
+            <td>
+                <button class="btn btn-warning" (click)="onUpdatebtn(dt)">Update</button>
+            </td> 
+        </tr>
+    </table>
+</div>
+

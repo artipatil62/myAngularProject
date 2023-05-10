@@ -1,0 +1,118 @@
+
+<h3>Reactive form validation:-</h3>
+<form [formGroup]="myForm" (ngSubmit)="onSubmitbtn()">
+   <!-- for UserName -->
+   <label for="username" class="form-label">UserName</label>
+   <input type="text" class="form-control" name="uname" formControlName="uname"
+   [ngClass]="{'is-invalid':submitted && myForm.controls.uname.errors}" required>
+    
+   <div *ngIf="myForm.controls.uname.touched" class="invalid-feedback">
+      <div *ngIf="myForm.controls.uname.errors?.required">this field is required</div>
+      <div *ngIf="myForm.controls.uname.errors?.minlength">Minimum 3 letters are required</div>
+   </div>
+
+
+      <!-- for Email -->
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" name="email" formControlName="email"
+      [ngClass]="{'is-invalid':submitted && myForm.controls.email.errors}" required>
+       
+      <div *ngIf="myForm.controls.email.touched" class="invalid-feedback">
+         <div *ngIf="myForm.controls.email.errors?.required">this field is required</div>
+         <div *ngIf="myForm.controls.email.errors?.email">please enter your valid email id</div>
+      </div>
+
+       <!-- for password -->
+       <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" name="pass" formControlName="pass"
+      [ngClass]="{'is-invalid':submitted && myForm.controls.pass.errors}" required>
+       
+      <div *ngIf="myForm.controls.pass.touched" class="invalid-feedback">
+         <div *ngIf="myForm.controls.pass.errors?.required">this field is required</div>
+         <div *ngIf="myForm.controls.pass.errors?.minlength">minimum 3 characters are required</div>
+      </div>
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <div class="form-group">
+       <button type="submit" class="btn btn-primary">Submit</button>
+   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+ 
+
+
+
+ 
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+        
